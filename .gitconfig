@@ -1,0 +1,9 @@
+[user]
+    name = tecokimura
+    email = tecokimura@gmail.com
+
+[includeIf "gitdir:~/Documents/projects/**"]
+    path = ~/.gitconfig-company
+
+
+
