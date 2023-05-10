@@ -13,3 +13,13 @@ memo() {
     local TODAY="$(date +%Y%m%d)"
     vim "$MEMO_DIR/$TODAY.md"
 }
+
+select-history() {
+    # コマンドの実行履歴をfzfで選択し、コマンドラインへ書き込む
+    BUFFER=$(history -n -r 1 | fzf --query "$BUFFER")
+    # カーソルをコマンドラインの右端に移動
+    CURSOR=$#BUFFER
+}
+# シェル関数にキーボードショートカット「Ctrl+R」を割り当てる
+zle -N select-history
+bindkey '^r' select-history
